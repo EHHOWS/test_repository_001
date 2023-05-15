@@ -51,7 +51,7 @@ class Character():
             else:
                 return self.memory.others[turn - 1]
         elif self.strategy == 3: # 무조건 신뢰하다, 상대방이 3번 이상 배신하면 무조건 배신
-            if len(self.memory.others) == len(set(self.memory.others)) + 2:
+            if self.memory.others.count(cp.betray) >= 3:
                 return cp.betray
             else:
                 return cp.trust
